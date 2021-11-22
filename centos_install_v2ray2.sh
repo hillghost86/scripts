@@ -127,6 +127,8 @@ getData() {
         CERT_FILE="/etc/v2ray/${DOMAIN}.pem"
         KEY_FILE="/etc/v2ray/${DOMAIN}.key"
     else
+        # 原来的域名解析检测检测不到，修改后不检测IP 
+        # resolve=`curl -sL https://hijk.art/hostip.php?d=${DOMAIN}`
         resolve=${IP}
         res=`echo -n ${resolve} | grep ${IP}`
         if [[ -z "${res}" ]]; then
